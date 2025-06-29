@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import { Sparkles } from "lucide-react";
 import { FieldPalette } from "~/components/form-builder/FieldPalette";
+import { FormCanvas } from "~/components/form-builder/FormCanvas";
 import Header from "~/components/Header";
 
 export const meta: MetaFunction = () => {
@@ -12,12 +12,14 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-purple-900/20 dark:to-indigo-900/20">
+    <div className="min-h-screen bg-purple-50">
       {/* Header */}
       <Header />
 
-      <div className="container mx-auto p-6">
+      <div className="container mx-auto p-6 flex gap-3">
         <FieldPalette />
+
+        <FormCanvas />
       </div>
     </div>
   );
