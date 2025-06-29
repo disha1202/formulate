@@ -77,7 +77,7 @@ export function PropertiesPanel() {
             id="label"
             value={field.label}
             onChange={(e) => handleUpdate({ label: e.target.value })}
-            className="w-full outline-orange-300 border p-1 rounded-lg text-sm"
+            className="w-full outline-orange-300 border-2 p-2 rounded-lg text-sm"
           />
         </div>
 
@@ -89,7 +89,7 @@ export function PropertiesPanel() {
             id="placeholder"
             value={field.placeholder || ""}
             onChange={(e) => handleUpdate({ placeholder: e.target.value })}
-            className="w-full text-sm outline-orange-300 border p-1 rounded-lg gray"
+            className="w-full text-sm outline-orange-300 border-2 p-2 rounded-lg gray"
           />
         </div>
 
@@ -102,7 +102,7 @@ export function PropertiesPanel() {
             value={field.helpText || ""}
             onChange={(e) => handleUpdate({ helpText: e.target.value })}
             rows={2}
-            className="w-full outline-orange-300 border p-1 rounded-lg"
+            className="w-full outline-orange-300 border-2 p-2 rounded-lg"
           />
         </div>
 
@@ -162,7 +162,7 @@ export function PropertiesPanel() {
                   <input
                     value={option}
                     onChange={(e) => updateOption(index, e.target.value)}
-                    className="border-2 outline-orange-400 rounded-lg p-1"
+                    className="w-full border-2 outline-orange-400 rounded-lg p-1 text-sm"
                   />
                   <button
                     onClick={() => removeOption(index)}
@@ -178,7 +178,7 @@ export function PropertiesPanel() {
                   value={newOption}
                   onChange={(e) => setNewOption(e.target.value)}
                   onKeyUp={(e) => e.key === "Enter" && addOption()}
-                  className="border-2 outline-orange-400 rounded-lg p-1"
+                  className="w-full border-2 outline-orange-400 rounded-lg p-1 text-sm"
                 />
                 <button
                   onClick={addOption}
