@@ -40,7 +40,7 @@ export function FieldPalette() {
           </div>
           Field Library
         </div>
-        <p className="text-sm text-gray-600">Drag or click to add fields</p>
+        <p className="text-sm text-gray-600 pt-1">Drag or click to add fields</p>
       </div>
       <div className="space-y-3 flex flex-col">
         {fieldTypes.map((field) => {
@@ -48,7 +48,7 @@ export function FieldPalette() {
           return (
             <button
               key={field.type}
-              className="justify-start h-12 outline-0 hover:shadow-lg transition-all duration-200 group relative overflow-hidden bg-transparent rounded-xl"
+              className="justify-start h-12 outline-0 hover:shadow-lg transition-all duration-200 group relative overflow-hidden bg-transparent rounded-xl border border-gray-200"
               onClick={() => handleAddField(field.type as FormField["type"])}
             >
               <div
