@@ -31,12 +31,12 @@ export function FormCanvas() {
 
   return (
     <div className="bg-white/80 backdrop-blur-sm border-0 shadow-2xl shadow-purple-100/50 rounded-xl grow">
-      <div className="rounded-t-xl border-b border-purple-100">
-        <div className="space-y-3 flex flex-col p-3 rounded-t-xl">
+      <div className="rounded-t-xl border-b-2 border-purple-200">
+        <div className="space-y-3 flex flex-col p-6 rounded-t-xl">
           <input
             value={currentForm.title}
             onChange={(e: { target: { value: string } }) => useFormStore.getState().setCurrentForm({ title: e.target.value })}
-            className="text-2xl outline-0 font-bold border-none p-0 focus-visible:ring-0 bg-transparent placeholder-purple-200 text-purple-300"
+            className="text-2xl outline-0 font-bold border-none p-0 focus-visible:ring-0 bg-transparent placeholder-purple-200 text-purple-400"
           />
           <textarea
             value={currentForm.description}

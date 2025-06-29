@@ -15,65 +15,65 @@ function FieldRenderer({ field, isSelected, onSelect, onDelete, onEdit, isDraggi
     const baseClasses = "w-full p-2"
 
     switch (field.type) {
-      case "text":
-      case "email":
-      case "phone":
-      case "number":
-        return (
-          <input
-            placeholder={field.placeholder}
-            type={
-              field.type === "number"
-                ? "number"
-                : field.type === "email"
-                  ? "email"
-                  : field.type === "phone"
-                    ? "tel"
-                    : "text"
-            }
-            className={`${baseClasses} bg-white/80 border border-gray-200 rounded-lg`}
-            disabled
-          />
-        )
-      case "textarea":
-        return <textarea placeholder={field.placeholder} className={`${baseClasses} bg-white/80 border border-gray-200 rounded-lg`} disabled />
-      case "dropdown":
-        return (
-          <select className={`${baseClasses} px-3 py-2 border border-input bg-background rounded-md`} disabled>
-            <option>{field.placeholder || "Select an option"}</option>
-            {field.options?.map((option, index) => (
-              <option key={index} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        )
-      case "checkbox":
-        return (
-          <div className="space-y-2">
-            {field.options?.map((option, index) => (
-              <div key={index} className="flex items-center space-x-2">
-                <input type="checkbox" disabled className="rounded" />
-                <label className="text-sm">{option}</label>
-              </div>
-            ))}
-          </div>
-        )
-      case "radio":
-        return (
-          <div className="space-y-2">
-            {field.options?.map((option, index) => (
-              <div key={index} className="flex items-center space-x-2">
-                <input type="radio" name={field.id} disabled />
-                <label className="text-sm">{option}</label>
-              </div>
-            ))}
-          </div>
-        )
-      case "date":
-        return <input type="date" className={baseClasses} disabled />
-      default:
-        return <input placeholder={field.placeholder} className={baseClasses} disabled />
+    case "text":
+    case "email":
+    case "phone":
+    case "number":
+      return (
+        <input
+          placeholder={field.placeholder}
+          type={
+            field.type === "number"
+              ? "number"
+              : field.type === "email"
+                ? "email"
+                : field.type === "phone"
+                  ? "tel"
+                  : "text"
+          }
+          className={`${baseClasses} bg-white/80 border border-gray-200 rounded-lg`}
+          disabled
+        />
+      )
+    case "textarea":
+      return <textarea placeholder={field.placeholder} className={`${baseClasses} bg-white/80 border border-gray-200 rounded-lg`} disabled />
+    case "dropdown":
+      return (
+        <select className={`${baseClasses} px-3 py-2 border border-input bg-background rounded-md`} disabled>
+          <option>{field.placeholder || "Select an option"}</option>
+          {field.options?.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      )
+    case "checkbox":
+      return (
+        <div className="space-y-2">
+          {field.options?.map((option, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <input type="checkbox" disabled className="rounded" />
+              <label className="text-sm">{option}</label>
+            </div>
+          ))}
+        </div>
+      )
+    case "radio":
+      return (
+        <div className="space-y-2">
+          {field.options?.map((option, index) => (
+            <div key={index} className="flex items-center space-x-2">
+              <input type="radio" name={field.id} disabled />
+              <label className="text-sm">{option}</label>
+            </div>
+          ))}
+        </div>
+      )
+    case "date":
+      return <input type="date" className={baseClasses} disabled />
+    default:
+      return <input placeholder={field.placeholder} className={baseClasses} disabled />
     }
   }
 
@@ -85,14 +85,14 @@ function FieldRenderer({ field, isSelected, onSelect, onDelete, onEdit, isDraggi
           : "border-gray-200 hover:border-purple-300 hover:shadow-md bg-white/80 backdrop-blur-sm"
       } ${isDragging ? "opacity-70 rotate-1 shadow-2xl scale-105" : ""}`}
       role="button"
-  tabIndex={0}
-  onClick={onSelect}
-  onKeyDown={(e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      onSelect();
-    }
-  }}
+      tabIndex={0}
+      onClick={onSelect}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onSelect();
+        }
+      }}
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center space-x-3">

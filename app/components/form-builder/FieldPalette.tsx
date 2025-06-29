@@ -32,7 +32,7 @@ export function FieldPalette() {
   }
 
   return (
-    <div className="bg-white/70 p-6 rounded-xl backdrop-blur-sm border-0 shadow-xl shadow-purple-100/50 w-60">
+    <div className="bg-white/70 p-6 rounded-xl backdrop-blur-sm border-0 shadow-xl shadow-purple-100/50 min-w-64 max-h-fit">
       <div className="pb-4">
         <div className="flex items-center text-lg">
           <div className="p-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg mr-3">
@@ -42,13 +42,13 @@ export function FieldPalette() {
         </div>
         <p className="text-sm text-gray-600">Drag or click to add fields</p>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-3 flex flex-col">
         {fieldTypes.map((field) => {
           const Icon = field.icon
           return (
             <button
               key={field.type}
-              className="w-full justify-start h-12 outline-0 hover:shadow-lg transition-all duration-200 group relative overflow-hidden bg-transparent rounded-xl"
+              className="justify-start h-12 outline-0 hover:shadow-lg transition-all duration-200 group relative overflow-hidden bg-transparent rounded-xl"
               onClick={() => handleAddField(field.type as FormField["type"])}
             >
               <div
@@ -56,12 +56,12 @@ export function FieldPalette() {
               />
               <div className="w-full flex items-center py-2 px-3">
                 <div
-                className={`p-1.5 bg-gradient-to-r ${field.color} rounded-md mr-3 group-hover:scale-110 transition-transform`}
-              >
-                <Icon className="w-4 h-4 text-white" />
-              </div>
-              <span className="font-medium">{field.label}</span>
-              <Plus className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                  className={`p-1.5 bg-gradient-to-r ${field.color} rounded-md mr-3 group-hover:scale-110 transition-transform`}
+                >
+                  <Icon className="w-4 h-4 text-white" />
+                </div>
+                <span className="font-medium">{field.label}</span>
+                <Plus className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               
             </button>

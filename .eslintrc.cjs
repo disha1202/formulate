@@ -23,11 +23,12 @@ module.exports = {
 
   // Base config
   extends: ["eslint:recommended"],
+  
 
   overrides: [
     // React
     {
-      files: ["**/*.{js,jsx,ts,tsx}"],
+      files: ["**/**/*.{js,jsx,ts,tsx}"],
       plugins: ["react", "jsx-a11y"],
       extends: [
         "plugin:react/recommended",
@@ -35,6 +36,9 @@ module.exports = {
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
       ],
+      rules: {
+        indent: ["error", 2], // or 4 for 4-space indentation
+      },
       settings: {
         react: {
           version: "detect",
