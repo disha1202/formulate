@@ -43,6 +43,9 @@ interface FormStore {
   setSelectedField: (id: string | null) => void
   setCurrentStep: (step: number) => void
   updateField: (id: string, updates: Partial<FormField>) => void
+  addStep: () => void
+  removeStep: (stepNumber: number) => void
+  moveFieldToStep: (fieldId: string, step: number) => void
 }
 
 export const useFormStore = create<FormStore>()(
@@ -106,8 +109,38 @@ export const useFormStore = create<FormStore>()(
 
       setSelectedField: (id) => set({ selectedField: id }),
       setCurrentStep: (step) => set({ currentStep: step }),
+      addStep: () =>
+        set((state) => ({
+          currentForm: {
+            ...state.currentForm,
+            steps: state.currentForm.steps + 1,
+            isMultiStep: true,
+          },
+        })),
 
+      removeStep: (stepNumber) =>
+        set((state) => {
+          const fields = state.currentForm.fields
+            .map((field) => (field.step && field.step > stepNumber ? { ...field, step: field.step - 1 } : field))
+            .filter((field) => field.step !== stepNumber)
 
+          return {
+            currentForm: {
+              ...state.currentForm,
+              fields,
+              steps: Math.max(1, state.currentForm.steps - 1),
+              isMultiStep: state.currentForm.steps - 1 > 1,
+            },
+          }
+        }),
+
+      moveFieldToStep: (fieldId, step) =>
+        set((state) => ({
+          currentForm: {
+            ...state.currentForm,
+            fields: state.currentForm.fields.map((field) => (field.id === fieldId ? { ...field, step } : field)),
+          },
+        })),
     }),
     {
       name: "form-builder-storage",

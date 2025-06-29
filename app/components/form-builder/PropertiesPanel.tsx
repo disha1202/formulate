@@ -137,12 +137,12 @@ export function PropertiesPanel() {
 
         {currentForm.isMultiStep && (
           <div className="space-y-2">
-            <label htmlFor="step-select">Form Step</label>
+            <label htmlFor="step-select" className="block">Form Step</label>
             <select
               id="step-select"
               value={field.step?.toString() || "1"}
               onChange={(event) => handleUpdate({ step: Number.parseInt(event.target.value, 10) })}
-              style={{ border: '2px solid #e5e7eb' }}
+              className="w-full border-2 border-gray-200 p-2 text-sm rounded-lg outline-blue-300"
             >
               {Array.from({ length: currentForm.steps }, (_, i) => (
                 <option key={i + 1} value={(i + 1).toString()}>

@@ -14,7 +14,7 @@ const fieldTypes = [
 ]
 
 export function FieldPalette() {
-  const { addField, currentForm } = useFormStore()
+  const { addField, currentForm, currentStep } = useFormStore()
 
   const handleAddField = (type: FormField["type"]) => {
     const fieldCount = currentForm.fields.filter((f) => f.type === type).length
@@ -24,7 +24,7 @@ export function FieldPalette() {
       label: `${fieldTypes.find((f) => f.type === type)?.label} ${fieldCount + 1}`,
       placeholder: type === "textarea" ? "Enter your message..." : "Enter value...",
       required: false,
-      step: currentForm.isMultiStep ? 1 : undefined,
+      step: currentForm.isMultiStep ? currentStep : undefined,
       options: type === "dropdown" || type === "radio" || type === "checkbox" ? ["Option 1", "Option 2"] : undefined,
     }
 
