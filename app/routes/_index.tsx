@@ -3,6 +3,7 @@ import { FieldPalette } from "~/components/form-builder/FieldPalette";
 import { FormCanvas } from "~/components/form-builder/FormCanvas";
 import { MultiStepControls } from "~/components/form-builder/MultiStepControls";
 import { PropertiesPanel } from "~/components/form-builder/PropertiesPanel";
+import { TemplatePanel } from "~/components/form-builder/TemplatePanel";
 import Header from "~/components/Header";
 
 export const meta: MetaFunction = () => {
@@ -28,7 +29,11 @@ export default function Index() {
 
         <FormCanvas />
 
-        <PropertiesPanel />
+        <div className="space-y-4">
+          <PropertiesPanel />
+          <TemplatePanel />
+        </div>
+        
       </div>
     </div>
   );

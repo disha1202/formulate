@@ -47,11 +47,11 @@ export function MultiStepControls() {
             <label htmlFor="multi-step" className="text-sm font-semibold text-gray-700">Enable Multi-Step</label>
             <p className="text-xs text-gray-600">Break your form into multiple steps</p>
           </div>
-          <label htmlFor="required" className='flex cursor-pointer select-none items-center'>
+          <label htmlFor="multi-step" className='flex cursor-pointer select-none items-center'>
             <span className="sr-only">Multi Step Form</span>
             <div className='relative'>
               <input
-                id='required'
+                id='multi-step'
                 type='checkbox'
                 checked={currentForm.isMultiStep}
                 onChange={(event) => handleToggleMultiStep(event.target.checked)}
