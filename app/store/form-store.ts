@@ -42,6 +42,7 @@ interface FormStore {
   reorderFields: (fromIndex: number, toIndex: number) => void
   setSelectedField: (id: string | null) => void
   setCurrentStep: (step: number) => void
+  updateField: (id: string, updates: Partial<FormField>) => void
 }
 
 export const useFormStore = create<FormStore>()(
@@ -94,6 +95,14 @@ export const useFormStore = create<FormStore>()(
             },
           }
         }),
+
+      updateField: (id, updates) =>
+        set((state) => ({
+          currentForm: {
+            ...state.currentForm,
+            fields: state.currentForm.fields.map((field) => (field.id === id ? { ...field, ...updates } : field)),
+          },
+        })),
 
       setSelectedField: (id) => set({ selectedField: id }),
       setCurrentStep: (step) => set({ currentStep: step }),

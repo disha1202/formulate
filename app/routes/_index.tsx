@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { FieldPalette } from "~/components/form-builder/FieldPalette";
 import { FormCanvas } from "~/components/form-builder/FormCanvas";
+import { PropertiesPanel } from "~/components/form-builder/PropertiesPanel";
 import Header from "~/components/Header";
 
 export const meta: MetaFunction = () => {
@@ -16,10 +17,12 @@ export default function Index() {
       {/* Header */}
       <Header />
 
-      <div className="container mx-auto p-6 flex gap-3">
+      <div className="container mx-auto py-6 flex gap-3">
         <FieldPalette />
 
         <FormCanvas />
+
+        <PropertiesPanel />
       </div>
     </div>
   );
